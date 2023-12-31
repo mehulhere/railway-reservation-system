@@ -1,0 +1,793 @@
+<html>
+<title>Insert Trains</title>
+
+<link rel="icon" href="https://cdn0.iconfinder.com/data/icons/travel-filled-line-4/64/Travel-Filled-14-512.png"
+  type="image/x-icon">
+
+<div class="container">
+
+  <header>
+    <h2><a class="b"  href="http://127.0.0.1:5000/"><i class="ion-plane"></i> MAG.in</a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="/listtrains" title="TimeTable">Train Time Table</a>
+        </li>
+        <li>
+          <a href="/inserttrain" title="InsertTrains">Add New Trains</a>
+        </li>
+        <li>
+          <a href="/aboutus" title="AboutUs">About Us</a>
+        </li>
+        <li>
+          <a class="hey" href="/bored" title="Don't Click">Are You Bored?</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <body><br><br><br>
+    <h1><center>ADD NEW TRAIN</center></h1>
+  <div class="form-group">
+    <button class="floating-btn">
+
+      <a href="http://127.0.0.1:5000/inserttrain/"
+        onclick="myFunction(); location.href=this.href+'trainno='+x;return false;">
+        Check Train Number
+      </a>
+    </button><br>
+    <form id="myForm" onkeypress="return event.keyCode != 13" class="panel">
+      <label class="form-group-label">TRAIN NO:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label><input id="0" class="form-control3" type="text" value=""><br>
+      <label class="form-group-label">TRAIN NAME: </label><input class="form-control3" id="1" type="text" value=""><br>
+      <label class="form-group-label">STATION 1:&nbsp;&nbsp; </label><input class="form-control2" id="2"type="text" value=" ">
+      <label class="form-group-label">TIME 1:&nbsp; </label> <input class="form-control2" type="text" id="3"value=" "><br>
+      <label class="form-group-label">STATION 2:&nbsp;&nbsp; </label><input class="form-control2" id="4"type="text" value=" ">
+      <label class="form-group-label">TIME 2:&nbsp; </label> <input class="form-control2" type="text" id="5"value=" "><br>
+      <label class="form-group-label">STATION 3:&nbsp;&nbsp; </label><input class="form-control2" id="6" type="text" value=" ">
+      <label class="form-group-label">TIME 3:&nbsp; </label> <input class="form-control2" type="text" id="7" value=" "><br>
+      <label class="form-group-label">STATION 4:&nbsp;&nbsp; </label><input class="form-control2" id="8" type="text" value=" ">
+      <label class="form-group-label">TIME 4:&nbsp; </label> <input class="form-control2" type="text" id="9" value=" "><br>
+      <label class="form-group-label">STATION 5:&nbsp;&nbsp; </label><input class="form-control2" id="10" type="text" value=" ">
+      <label class="form-group-label">TIME 5:&nbsp;</label> <input class="form-control2" type="text" id="11"value=" "><br>
+      <label class="form-group-label">STATION 6:&nbsp;&nbsp; </label><input class="form-control2" id="12" type="text" value=" ">
+      <label class="form-group-label">TIME 6:&nbsp; </label> <input class="form-control2" type="text" id="13" value=" "><br>
+      <label class="form-group-label">STATION 7:&nbsp;&nbsp; </label><input class="form-control2" type="text" id="14" value=" ">
+      <label class="form-group-label">TIME 7:&nbsp; </label> <input class="form-control2" type="text" id="15" value=" "><br>
+      <label class="form-group-label">STATION 8:&nbsp;&nbsp; </label><input class="form-control2" type="text" id="16" value=" ">
+      <label class="form-group-label">TIME 8:&nbsp; </label> <input class="form-control2" type="text"id="17" value=" "><br>
+      <label class="form-group-label">STATION 9:&nbsp;&nbsp; </label><input class="form-control2" type="text"id="18" value=" ">
+      <label class="form-group-label">TIME 9:&nbsp;  </label> <input class="form-control2" type="text" id="19"value=" "><br>
+      <label class="form-group-label">STATION 10: </label><input class="form-control2" type="text" id="20" value=" ">
+      <label class="form-group-label">TIME 10:</label> <input class="form-control2" type="text" id="21" value=" "><br>
+      <label class="form-group-label">STATION 11: </label><input class="form-control2" type="text" id="22" value=" ">
+      <label class="form-group-label">TIME 11:</label> <input class="form-control2" type="text" id="23" value=" "><br>
+      <label class="form-group-label">STATION 12: </label><input class="form-control2" type="text" id="24" value=" ">
+      <label class="form-group-label">TIME 12:</label> <input class="form-control2" type="text" id="25" value=" "><br>
+      <label class="form-group-label">STATION 13: </label><input class="form-control2" type="text" id="26" value=" ">
+      <label class="form-group-label">TIME 13:</label> <input class="form-control2" type="text" id="27" value=" "><br>
+      <label class="form-group-label">STATION 14: </label><input class="form-control2" type="text" id="28" value=" ">
+      <label class="form-group-label">TIME 14:</label> <input class="form-control2" type="text" id="29"value=" "><br>
+      <label class="form-group-label">STATION 15: </label><input class="form-control2" type="text" id="30" value=" ">
+      <label class="form-group-label">TIME 15:</label> <input class="form-control2" type="text" id="31" value=" "><br>
+      <label class="form-group-label">DAYS: </label> <input class="form-control3" type="text" id="32" value=""><br>
+    </form><br>
+    <center>
+      <a class="btnf" id="btnf" href="http://127.0.0.1:5000/inserttrain/" class="panel"
+        onclick="myFunction(); location.href=this.href+'trainno='+x+'trainame='+y+'s1='+a+'s2='+b+'s3='+c+'s4='+d+'s5='+e+'s6='+f+'s7='+g+'s8='+h+'s9='+i+'s10='+j+'s11='+k+'s12='+l+'s13='+m+'s14='+n+'s15='+o+'t1='+a1+'t2='+b1+'t3='+c1+'t4='+d1+'t5='+e1+'t6='+f1+'t7='+g1+'t8='+h1+'t9='+i1+'t10='+j1+'t11='+k1+'t12='+l1+'t13='+m1+'t14='+n1+'t15='+o1+'days='+p;return false;">
+        Save
+      </a>
+    </center><br>
+    <script>
+      function myFunction() {
+        x = ' '
+        y = ' '
+        a = ' '
+        x = document.getElementById("myForm").elements[0].value;
+        y = document.getElementById("myForm").elements[1].value;
+        a = document.getElementById("myForm").elements[2].value;
+        b = document.getElementById("myForm").elements[4].value;
+        c = document.getElementById("myForm").elements[6].value;
+        d = document.getElementById("myForm").elements[8].value;
+        e = document.getElementById("myForm").elements[10].value;
+        f = document.getElementById("myForm").elements[12].value;
+        g = document.getElementById("myForm").elements[14].value;
+        h = document.getElementById("myForm").elements[16].value;
+        i = document.getElementById("myForm").elements[18].value;
+        j = document.getElementById("myForm").elements[20].value;
+        k = document.getElementById("myForm").elements[22].value;
+        l = document.getElementById("myForm").elements[24].value;
+        m = document.getElementById("myForm").elements[26].value;
+        n = document.getElementById("myForm").elements[28].value;
+        o = document.getElementById("myForm").elements[30].value;
+        p = document.getElementById("myForm").elements[32].value;
+        a1 = document.getElementById("myForm").elements[3].value;
+        b1 = document.getElementById("myForm").elements[5].value;
+        c1 = document.getElementById("myForm").elements[7].value;
+        d1 = document.getElementById("myForm").elements[9].value;
+        e1 = document.getElementById("myForm").elements[11].value;
+        f1 = document.getElementById("myForm").elements[13].value;
+        g1 = document.getElementById("myForm").elements[15].value;
+        h1 = document.getElementById("myForm").elements[17].value;
+        i1 = document.getElementById("myForm").elements[19].value;
+        j1 = document.getElementById("myForm").elements[21].value;
+        k1 = document.getElementById("myForm").elements[23].value;
+        l1 = document.getElementById("myForm").elements[25].value;
+        m1 = document.getElementById("myForm").elements[27].value;
+        n1 = document.getElementById("myForm").elements[29].value;
+        o1 = document.getElementById("myForm").elements[31].value;
+      }
+    </script>
+  </div>
+  <script>
+    var input = document.getElementById("32");
+    input.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+       event.preventDefault();
+       document.getElementById("btnf").click();
+      }
+    });
+    </script>
+    <script>
+      var input = document.getElementById("0");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("1").focus();
+        }
+      });
+      var input = document.getElementById("1");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("2").focus();
+        }
+      });
+      var input = document.getElementById("2");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("3").focus();
+        }
+      });
+      var input = document.getElementById("3");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("4").focus();
+        }
+      });
+      var input = document.getElementById("4");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("5").focus();
+        }
+      });
+      var input = document.getElementById("5");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("6").focus();
+        }
+      });
+      var input = document.getElementById("6");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("7").focus();
+        }
+      });
+      var input = document.getElementById("7");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("8").focus();
+        }
+      });
+      var input = document.getElementById("8");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("9").focus();
+        }
+      });
+      var input = document.getElementById("9");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("10").focus();
+        }
+      });
+      var input = document.getElementById("10");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("11").focus();
+        }
+      });
+      var input = document.getElementById("11");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("12").focus();
+        }
+      });
+      var input = document.getElementById("12");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("13").focus();
+        }
+      });
+      var input = document.getElementById("13");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("14").focus();
+        }
+      });
+      var input = document.getElementById("14");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("15").focus();
+        }
+      });
+      var input = document.getElementById("15");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("16").focus();
+        }
+      });
+      var input = document.getElementById("16");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("17").focus();
+        }
+      });
+      var input = document.getElementById("17");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("18").focus();
+        }
+      });
+      var input = document.getElementById("18");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("19").focus();
+        }
+      });
+      var input = document.getElementById("19");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("20").focus();
+        }
+      });
+      var input = document.getElementById("20");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("21").focus();
+        }
+      });
+      var input = document.getElementById("21");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("22").focus();
+        }
+      });
+      var input = document.getElementById("22");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("23").focus();
+        }
+      });
+      var input = document.getElementById("23");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("24").focus();
+        }
+      });
+      var input = document.getElementById("24");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("25").focus();
+        }
+      });
+      var input = document.getElementById("25");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("26").focus();
+        }
+      });
+      var input = document.getElementById("26");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("27").focus();
+        }
+      });
+      var input = document.getElementById("27");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("28").focus();
+        }
+      });
+      var input = document.getElementById("28");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("29").focus();
+        }
+      });
+      var input = document.getElementById("29");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("30").focus();
+        }
+      });
+      var input = document.getElementById("30");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("31").focus();
+        }
+      });
+      var input = document.getElementById("31");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("32").focus();
+        }
+      });
+      
+      
+      </script>
+</body>
+<style>
+  a.btnf {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-blend-mode: darken;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  a.btnf:hover {
+    opacity: 1;
+    background: #d73851;
+    border: 1px solid #d73851;
+    color: #fff;
+  }
+  body {
+      font: 400 14px "Calibri", "Arial";
+      padding: 20px;
+  }
+
+  blockquote {
+      color: rgb(56, 0, 0);
+      text-align: center;
+  }
+
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+  *,
+  *:before,
+  *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+  }
+
+  ::-webkit-input-placeholder {
+      color: #56585b;
+  }
+
+  ::-moz-placeholder {
+      color: #56585b;
+  }
+
+  :-moz-placeholder {
+      color: #56585b;
+  }
+
+  html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+
+  body {
+      background-image: linear-gradient(45deg, #4b4e9e, #be5656);
+      font-family: 'Muli', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+  }
+  .btn {
+    background-color: #2A265F;
+    border: 0;
+    border-radius: 50px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 25px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    letter-spacing: 0.8px;
+  }
+
+  .panel {
+    width: 1000px;
+    max-width: 90%;
+    display:block;
+    margin: auto;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px 2px, rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+    background-image: initial;
+    background-color: rgb(24, 26, 27)
+    ;
+  }
+
+  .form-group+.form-group {
+    margin-top: 8px;
+  }
+
+  .form-group .form-group-input-container {
+    position: static;
+    max-width: 500px;
+  }
+
+  .form-control {
+    height: 30px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 0 10px;
+    border: 1px solid #a0aec0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    font-family: inherit;
+    position: relative;
+    max-width: 400px;
+    margin: 5px 120px;
+
+  }
+
+  .form-control2 {
+    height: 30px;
+    width: 300px;
+    border-color: rgb(70, 76, 79);
+    background:#3B3B3B;
+    border-radius: 6px;
+    padding: 0 5px;
+    border: 1px solid #a0aec0;
+    margin: 3px;
+    color:#B0A99F;
+    border-color: rgb(70, 76, 79);
+    border-top-color: rgb(70, 76, 79);
+    border-right-color: rgb(70, 76, 79);
+    border-bottom-color: rgb(70, 76, 79);
+    border-left-color: rgb(70, 76, 79);
+
+  }
+
+  .form-control3{
+    height: 30px;
+    width: 337px;
+    border-color: rgb(70, 76, 79);
+    background:#3B3B3B;
+    border-radius: 6px;
+    padding: 0 5px;
+    border: 1px solid #a0aec0;
+    margin: 3px;
+    color:#B0A99F;
+    border-color: rgb(70, 76, 79);
+    border-top-color: rgb(70, 76, 79);
+    border-right-color: rgb(70, 76, 79);
+    border-bottom-color: rgb(70, 76, 79);
+    border-left-color: rgb(70, 76, 79);
+
+  }
+
+
+
+  .form-group .form-group-label {
+    color: #B0A99F;
+    font-weight: bold;
+    margin-top: 3px;
+    display: inline-block;
+
+  }
+
+
+  ul,
+  nav {
+      list-style: none;
+      padding: 0;
+  }
+
+  a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.9;
+  }
+
+  header a:hover {
+    opacity: 1;
+    font-weight: bold;
+    
+  }
+  a.b:hover{
+    color: #ef3f5a;
+  }
+
+
+  h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 1.5rem;
+  }
+
+  i {
+      font-size: 1.3rem;
+  }
+
+  header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 10px 100px 0;
+  }
+
+  header nav ul {
+      display: flex;
+  }
+
+  header nav li {
+      margin: 0 15px;
+  }
+
+  header nav li:first-child {
+      margin-left: 0;
+  }
+
+  header nav li:last-child {
+      margin-right: 0;
+  }
+
+  a.btn {
+      color: #fff;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+  }
+
+  a.btn:hover {
+      background: #d73851;
+      border: 1px solid #d73851;
+      color: #fff;
+  }
+
+  .cover {
+      height: 100vh;
+      width: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      padding: 20px 50px;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+  }
+
+  .flex-form input[type="submit"] {
+      background: #ef3f5a;
+      border: 1px solid #ef3f5a;
+      color: rgb(36, 15, 15);
+      padding: 0 30px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+  }
+
+  .hey {
+      background: #ef3f5a;
+      border: 1px solid #ef3f5a;
+      color: #fff;
+      padding: 16 30px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+  }
+
+  .flex-form {
+      display: -webkit-box;
+      display: flex;
+      z-index: 10;
+      position: relative;
+      width: 5000px;
+      box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .flex-form>* {
+      border: 0;
+      padding: 0 0 0 10px;
+      background: #fff;
+      line-height: 50px;
+      font-size: 1rem;
+      border-radius: 0;
+      outline: 0;
+      -webkit-appearance: none;
+  }
+
+  input[type="search"] {
+      flex-basis: 500px;
+  }
+
+  .flex-formd input[type="DATE"] {
+      border-radius: 50px 20px;
+      border: 2px solid #ef3f5a;
+      padding: 0 0 0 10px;
+      background: #fff;
+      height: 50px;
+      font-size: 1rem;
+      border-radius: 0;
+      outline: 0;
+      -webkit-appearance: none;
+  }
+
+  .floating-text {
+      background-color: #001F61;
+      border-radius: 10px 10px 0 0;
+      color: #fff;
+      font-family: 'Muli';
+      padding: 7px 15px;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 998;
+  }
+
+  .floating-text a {
+      color: #FF7500;
+      text-decoration: none;
+  }
+
+  .floating-btn {
+    border-radius: 26.5px;
+    background-color: #001F61;
+    border: 1px solid #001F61;
+    box-shadow: 0 16px 22px -17px #03153B;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 12px 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+  }
+
+  .floating-btn:hover {
+    background-color: #d73851;
+    color: #ffffff;
+  }
+
+  .floating-btn:focus {
+    outline: none;
+  }
+
+  #madeby {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 25px 100px;
+      color: #fff;
+  }
+
+  @media all and (max-width:1200px) {
+      body {
+          font-size: 0.9rem;
+      }
+
+      .flex-form {
+          width: 100%;
+      }
+
+      input[type="search"] {
+          flex-basis: 100%;
+      }
+
+      .flex-form>* {
+          font-size: 0.9rem;
+      }
+
+      header {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+          padding: 10px !important;
+      }
+
+      header h2 {
+          margin-bottom: 15px;
+      }
+
+      h1 {
+          font-size: 2rem;
+      }
+
+      .cover {
+          padding: 20px;
+      }
+
+      #madeby {
+          padding: 30px 20px;
+      }
+  }
+
+  @media all and (max-width:360px) {
+      header nav li {
+          margin: 0 10px;
+      }
+
+      .flex-form {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+      }
+
+      input[type="search"] {
+          flex-basis: 0;
+      }
+
+      label {
+          display: none;
+      }
+  }
+</style>
+
+</html>

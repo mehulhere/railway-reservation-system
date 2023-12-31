@@ -1,0 +1,948 @@
+<html>
+  <title>Train Search</title>
+<link rel="icon" href="https://cdn0.iconfinder.com/data/icons/travel-filled-line-4/64/Travel-Filled-14-512.png"
+  type="image/x-icon">
+<div class="container">
+  <header>
+    <h2><a class="b" href="http://127.0.0.1:5000/"><i class="ion-plane"></i> MAG.in</a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="/listtrains" title="TimeTable">Train Time Table</a>
+        </li>
+        <li>
+          <a href="/inserttrain" title="InsertTrains">Add New Trains</a>
+        </li>
+        <li>
+          <a href="/aboutus" title="AboutUs">About Us</a>
+        </li>
+        <li>
+          <a class="hey" href="/bored" title="Don't Click">Are You Bored?</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+<body><br><br><br><br><br>
+  <div class={{trainno0}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+          <h6>Train</h6>
+          <h2>{{trainno0+space+trainname0}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day0}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst0}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time0}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst0}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm0}}</td>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname0+'trainno='+trainno0+'deptm='+deptm0+'destm='+destm0+'depst='+depst0+'desst='+desst0;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm0}}</td>
+                    </tr>
+          </table>      
+          <button class="btn" href=""
+            onclick="location.href=this.href+'trainname='+trainname0+'trainno='+trainno0+'deptm='+deptm0+'destm='+destm0+'depst='+depst0+'desst='+desst0+'time='+time0+'day='+day0+'date='+date;return false;">Book
+            Tickets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class={{trainno1}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+          <h6>Train</h6>
+          <h2>{{trainno1+space+trainname1}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day1}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst1}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time1}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst1}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm1}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname1+'trainno='+trainno1+'deptm='+deptm1+'destm='+destm1+'depst='+depst1+'desst='+desst1;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm1}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href=" " onclick="location.href=this.href+'trainname='+trainname1+'trainno='+trainno1+'deptm='+deptm1+'destm='+destm1+'depst='+depst1+'desst='+desst1+'time='+time1+'day='+day1+'date='+date;return false;"
+          >Book Tickets </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class={{trainno2}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+          <h6>Train</h6>
+          <h2>{{trainno2+space+trainname2}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day2}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst2}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time2}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst2}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm2}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname2+'trainno='+trainno2+'deptm='+deptm2+'destm='+destm2+'depst='+depst2+'desst='+desst2;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm2}}</td>
+                    </tr>
+          </table>        
+          <button class="btn" href=" " onclick="location.href=this.href+'trainname='+trainname2+'trainno='+trainno2+'deptm='+deptm2+'destm='+destm2+'depst='+depst2+'desst='+desst2+'time='+time2+'day='+day2+'date='+date;return false;"
+          >Book Tickets </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class={{trainno3}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno3+space+trainname3)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day3}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst3}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time3}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst3}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm3}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname3+'trainno='+trainno3+'deptm='+deptm3+'destm='+destm3+'depst='+depst3+'desst='+desst3;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm3}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname3+'trainno='+trainno3+'deptm='+deptm3+'destm='+destm3+'depst='+depst3+'desst='+desst3+'time='+time3+'day='+day3+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class={{trainno4}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno4+space+trainname4)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day4}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst4}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time4}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst4}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm4}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname4+'trainno='+trainno4+'deptm='+deptm4+'destm='+destm4+'depst='+depst4+'desst='+desst4;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm4}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname4+'trainno='+trainno4+'deptm='+deptm4+'destm='+destm4+'depst='+depst4+'desst='+desst4+'time='+time4+'day='+day4+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class={{trainno5}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno5+space+trainname5)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day5}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst5}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time5}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst5}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm5}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname5+'trainno='+trainno5+'deptm='+deptm5+'destm='+destm5+'depst='+depst5+'desst='+desst5;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm5}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname5+'trainno='+trainno5+'deptm='+deptm5+'destm='+destm5+'depst='+depst5+'desst='+desst5+'time='+time5+'day='+day5+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class={{trainno6}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno6+space+trainname6)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day6}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst6}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time6}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst6}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm6}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname6+'trainno='+trainno6+'deptm='+deptm6+'destm='+destm6+'depst='+depst6+'desst='+desst6;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm6}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname6+'trainno='+trainno6+'deptm='+deptm6+'destm='+destm6+'depst='+depst6+'desst='+desst6+'time='+time6+'day='+day6+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class={{trainno7}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno7+space+trainname7)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day7}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst7}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time7}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst7}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm7}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname7+'trainno='+trainno7+'deptm='+deptm7+'destm='+destm7+'depst='+depst7+'desst='+desst7;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm7}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname7+'trainno='+trainno7+'deptm='+deptm7+'destm='+destm7+'depst='+depst7+'desst='+desst7+'time='+time7+'day='+day7+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class={{trainno8}}>
+    <div class="courses-container" >
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno8+space+trainname8)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day8}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst8}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time8}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst8}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm8}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname8+'trainno='+trainno8+'deptm='+deptm8+'destm='+destm8+'depst='+depst8+'desst='+desst8;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm8}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname8+'trainno='+trainno8+'deptm='+deptm8+'destm='+destm8+'depst='+depst8+'desst='+desst8+'time='+time8+'day='+day8+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class={{trainno9}}>
+    <div class="courses-container">
+      <div class="course">
+        <div class="course-preview">
+
+          <h6>Train</h6>
+          <h2>{{(trainno9+space+trainname9)}}</h2>
+          <a>Departs on: <i class="fas fa-chevron-right"></i></a>
+          <p class="lol">{{day9}}</p>
+        </div>
+        <div class="course-info">
+          <div class="progress-container">
+            <div class="progress"></div>
+            <span class="progress-text">
+            </span>
+          </div>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td width="25%" align="center"  style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5> Departure </h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"><h5>Duration</h5></td>
+                <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 5px;"> <h5>Destination</h5></td>
+                </tr>
+                <tr>
+                  <td width="33%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;">{{depst9}} </td>
+                  <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 1200; line-height: 24px; padding: 0px;"><h2>⎯⎯⎯⎯⎯<span>{{time9}}</span>⎯⎯⎯&#10230;</h2></td>
+                  <td width="33%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 30px; font-weight: 1000; line-height: 24px; padding: 0px;"> {{desst9}}</td>
+                  </tr>
+                  <tr>
+                    <td width="25%"  align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;">{{deptm9}}</td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;"><button href="" class="btn-link" onclick="window.location.href=this.href+'trainname='+trainname9+'trainno='+trainno9+'deptm='+deptm9+'destm='+destm9+'depst='+depst9+'desst='+desst9;return false;">View Route</button></td>
+                    <td width="25%" align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; line-height: 2px; padding: 5px;"> {{destm9}}</td>
+                    </tr>
+          </table>    
+          <button class="btn" href="" onclick="location.href=this.href+'trainname='+trainname9+'trainno='+trainno9+'deptm='+deptm9+'destm='+destm9+'depst='+depst9+'desst='+desst9+'time='+time9+'day='+day9+'date='+date;return false;">Book Tickets </button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <center><h3 align:center style="color:rgb(5, 5, 5)"><a id="hess">ff</a></h3><br><br></center>
+  <script>
+    k='{{k}}';
+    date='{{date}}';
+  date = date.split("-").reverse().join("-");
+    if (k==0){
+      var j="<h1><small>No Such Trains Are Available</small></h1>";
+    }else if(k!=0){
+      var j="............No More Trains Are Available On "+date+"............";
+    }
+    document.getElementById("hess").innerHTML = j;
+  </script>
+  <script>
+    var trainname0 = '{{trainname0}}';
+    var trainno0 = '{{trainno0}}';
+    var trainname1 = '{{trainname1}}';
+    var trainno1 = '{{trainno1}}';
+    var trainname2 = '{{trainname2}}';
+    var trainno2 = '{{trainno2}}';
+    var trainname3 = '{{trainname3}}';
+    var trainno3 = '{{trainno3}}';
+    var trainname4 = '{{trainname4}}';
+    var trainno4 = '{{trainno4}}';
+    var trainname5 = '{{trainname5}}';
+    var trainno5 = '{{trainno5}}';
+    var trainname6 = '{{trainname6}}';
+    var trainno6 = '{{trainno6}}';
+    var trainname7 = '{{trainname7}}';
+    var trainno7 = '{{trainno7}}';
+    var trainname8 = '{{trainname8}}';
+    var trainno8 = '{{trainno8}}';
+    var trainname9 = '{{trainname9}}';
+    var trainno9 = '{{trainno9}}';
+    var depst0 = '{{depst0}}';
+    var desst0 = '{{desst0}}';
+    var destm0 = '{{destm0}}';
+    var deptm0 = '{{deptm0}}';
+    var day0 = '{{day0}}';
+    var time0 = '{{time0}}';
+    var depst1 = '{{depst1}}';
+    var desst1 = '{{desst1}}';
+    var destm1 = '{{destm1}}';
+    var deptm1 = '{{deptm1}}';
+    var day1 = '{{day1}}';
+    var time1 = '{{time1}}';
+    var depst2 = '{{depst2}}';
+    var desst2 = '{{desst2}}';
+    var destm2 = '{{destm2}}';
+    var deptm2 = '{{deptm2}}';
+    var day2 = '{{day2}}';
+    var time2 = '{{time2}}';
+    var depst3 = '{{depst3}}';
+    var desst3 = '{{desst3}}';
+    var destm3 = '{{destm3}}';
+    var deptm3 = '{{deptm3}}';
+    var day3 = '{{day3}}';
+    var time3 = '{{time3}}';
+    var depst4 = '{{depst4}}';
+    var desst4 = '{{desst4}}';
+    var destm4 = '{{destm4}}';
+    var deptm4 = '{{deptm4}}';
+    var day4 = '{{day4}}';
+    var time4 = '{{time4}}';
+    var depst5 = '{{depst5}}';
+    var desst5 = '{{desst5}}';
+    var destm5 = '{{destm5}}';
+    var deptm5 = '{{deptm5}}';
+    var day5 = '{{day5}}';
+    var time5 = '{{time5}}';
+    var depst6 = '{{depst6}}';
+    var desst6 = '{{desst6}}';
+    var destm6 = '{{destm6}}';
+    var deptm6 = '{{deptm6}}';
+    var day6 = '{{day6}}';
+    var time6 = '{{time6}}';
+    var depst7 = '{{depst7}}';
+    var desst7 = '{{desst7}}';
+    var destm7 = '{{destm7}}';
+    var deptm7 = '{{deptm7}}';
+    var day7 = '{{day7}}';
+    var time7 = '{{time7}}';
+    var depst8 = '{{depst8}}';
+    var desst8 = '{{desst8}}';
+    var destm8 = '{{destm8}}';
+    var deptm8 = '{{deptm8}}';
+    var day8 = '{{day8}}';
+    var time8 = '{{time8}}';
+    var depst9 = '{{depst9}}';
+    var desst9 = '{{desst9}}';
+    var destm9 = '{{destm9}}';
+    var deptm9 = '{{deptm9}}';
+    var day9 = '{{day9}}';
+    var time9 = '{{time9}}';
+    var date='{{date}}'
+  </script>
+
+
+  <style>
+    .btn-link{font-weight:600;color:#008CFF;border-radius:0}.btn-link,.btn-link.active,.btn-link:active,.btn-link[disabled],fieldset[disabled] .btn-link{background-color:transparent;-webkit-box-shadow:none;box-shadow:none;}.btn-link,.btn-link:active,.btn-link:focus,.btn-link:hover{border-color:transparent;text-decoration: none;cursor:pointer;color:#d73851;}.btn-link:focus,.btn-link:hover{color:#d73851;text-decoration:none;background-color:transparent}.btn-link[disabled]:focus,.btn-link[disabled]:hover,fieldset[disabled] .btn-link:focus,fieldset[disabled] .btn-link:hover{color:#d73851;text-decoration:none}
+    .btn-link{-webkit-box-shadow:none;box-shadow:none}
+    .btn-link{color:#2A265F}.navbar-default .btn-link:focus,.navbar-default .btn-link:hover{color:#d73851}.navbar-default .btn-link[disabled]:focus,.navbar-default .btn-link[disabled]:hover,fieldset[disabled] .navbar-default .btn-link:focus,fieldset[disabled] .navbar-default .btn-link:hover{color:#d73851}
+    h2 span {
+      font-size: 10pt;
+    }
+
+    .course {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      max-width: 100%;
+      height: 250px;
+      margin: 25px;
+      overflow: hidden;
+      width: 1200px;
+    }
+
+    .course h6 {
+      opacity: 0.6;
+      margin: 0;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .course h2 {
+      letter-spacing: 0px;
+      margin: 10px 0;
+    }
+
+    .course-preview {
+      background-color: #2A265F;
+      color: #fff;
+      padding: 30px;
+      width: 500px;
+    }
+
+    .course-preview a {
+      color: #fff;
+      display: inline-block;
+      font-size: 12px;
+      opacity: 0.6;
+      margin-top: 30px;
+      text-decoration: none;
+    }
+
+    .course-info {
+      padding: 30px;
+      position: relative;
+      width: 100%;
+    }
+
+
+    .lol {
+      color: #26b5a9;
+      ;
+
+    }
+
+    div.g {
+      display: none;
+    }
+
+    .btn {
+      background-color: #2A265F;
+      border: 0;
+      border-radius: 50px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-size: 16px;
+      padding: 12px 25px;
+      position: absolute;
+      bottom: 18px;
+      right: 30px;
+      letter-spacing: 1px;
+    }
+
+    .btn:hover {
+      background: #d73851;
+      border: 1px solid #d73851;
+      color: #fff;
+      cursor: pointer;
+  }
+
+    .floating-btn {
+      border-radius: 26.5px;
+      background-color: #001F61;
+      border: 1px solid #001F61;
+      box-shadow: 0 16px 22px -17px #03153B;
+      color: #fff;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 12px 20px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .floating-btn:hover {
+      background-color: #ffffff;
+      color: #001F61;
+    }
+
+    .floating-btn:focus {
+      outline: none;
+    }
+
+    .floating-text {
+      background-color: #001F61;
+      border-radius: 10px 10px 0 0;
+      color: #fff;
+      font-family: 'Muli';
+      padding: 7px 15px;
+      bottom: 0;
+      text-align: center;
+
+    }
+
+    .floating-text a {
+      color: #FF7500;
+      text-decoration: none;
+      margin-bottom: 0px;
+    }
+    
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        -moz-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    ::-webkit-input-placeholder {
+        color: #56585b;
+    }
+
+    ::-moz-placeholder {
+        color: #56585b;
+    }
+
+    :-moz-placeholder {
+        color: #56585b;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: linear-gradient(80deg, #4b4e9e, #be5656);
+        font-family: 'Muli', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+
+    ul,
+    nav {
+        list-style: none;
+        padding: 0;
+    }
+
+    a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        opacity: 1;
+    }
+       header a {
+          color: rgb(255, 255, 255);
+          text-decoration: none;
+          cursor: pointer;
+          opacity: 0.9;
+    }
+    a.b {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.9;
+  }
+
+  a:hover {
+    opacity: 1;
+    font-weight: bold;
+    
+  }
+  a.b:hover{
+    color: #ef3f5a;
+  }
+
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 1.5rem;
+    }
+
+    i {
+        font-size: 1.3rem;
+    }
+
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        padding: 10px 100px 0;
+    }
+
+    header nav ul {
+        display: flex;
+    }
+
+    header nav li {
+        margin: 0 15px;
+    }
+
+    header nav li:first-child {
+        margin-left: 0;
+    }
+
+    header nav li:last-child {
+        margin-right: 0;
+    }
+
+
+    a.btn:hover {
+        background: #d73851;
+        border: 1px solid #d73851;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .cover {
+        height: 100vh;
+        width: 100%;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+        padding: 20px 50px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+
+    .flex-form input[type="submit"] {
+        background: #ef3f5a;
+        border: 1px solid #ef3f5a;
+        color: rgb(36, 15, 15);
+        padding: 0 30px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+
+    .hey {
+        background: #ef3f5a;
+        border: 1px solid #ef3f5a;
+        color: #fff;
+        padding: 16 30px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+    }
+
+    .flex-form {
+        display: -webkit-box;
+        display: flex;
+        z-index: 10;
+        position: relative;
+        width: 5000px;
+        box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .flex-form>* {
+        border: 0;
+        padding: 0 0 0 10px;
+        background: #fff;
+        line-height: 50px;
+        font-size: 1rem;
+        border-radius: 0;
+        outline: 0;
+        -webkit-appearance: none;
+    }
+
+    input[type="search"] {
+        flex-basis: 500px;
+    }
+
+    .flex-formd input[type="DATE"] {
+        border-radius: 50px 20px;
+        border: 2px solid #ef3f5a;
+        padding: 0 0 0 10px;
+        background: #fff;
+        height: 50px;
+        font-size: 1rem;
+        border-radius: 0;
+        outline: 0;
+        -webkit-appearance: none;
+    }
+
+    .floating-text {
+        background-color: #001F61;
+        border-radius: 10px 10px 0 0;
+        color: #fff;
+        font-family: 'Muli';
+        padding: 7px 15px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 998;
+    }
+
+    .floating-text a {
+        color: #FF7500;
+        text-decoration: none;
+    }
+
+
+    #madeby {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 25px 100px;
+        color: #fff;
+    }
+    .table {
+      display: table;
+    }
+    
+    .row {
+      display: table-row;
+    }
+    
+    .cell {
+      display: table-cell;
+      padding: 0 10px;
+    }
+
+    @media all and (max-width:1200px) {
+        body {
+            font-size: 0.9rem;
+        }
+
+        .flex-form {
+            width: 100%;
+        }
+
+        input[type="search"] {
+            flex-basis: 100%;
+        }
+
+        .flex-form>* {
+            font-size: 0.9rem;
+        }
+
+        header {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            padding: 10px !important;
+        }
+
+        header h2 {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .cover {
+            padding: 20px;
+        }
+
+        #madeby {
+            padding: 30px 20px;
+        }
+    }
+
+    @media all and (max-width:360px) {
+        header nav li {
+            margin: 0 10px;
+        }
+
+        .flex-form {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+        }
+
+        input[type="search"] {
+            flex-basis: 0;
+        }
+
+        label {
+            display: none;
+        }
+    }
+  </style>
+  </div>
+</body>
+
+</html>

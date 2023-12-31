@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Train Directory</title>
+</head>
+
+<body>
+    <nav>
+        <ul>
+          <li>
+            <a href="/listtrains" title="TimeTable">Train Time Table</a>
+          </li>
+          <li>
+            <a href="/inserttrain" title="InsertTrains">Add New Trains</a>
+          </li>
+          <li>
+            <a href="/aboutus" title="AboutUs">About Us</a>
+          </li>
+          <li>
+            <a class="hey" href="#" title="Don't Click">Are You Bored?</a>
+          </li>
+        </ul>
+      </nav>
+
+    <div class="container">
+        <h2>LIST OF TRAINS</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>TRAIN NO</th>
+                        <th>TRAIN NAME</th>
+                        <th>JOURNEY DURATION</th>
+                        <th>DAYS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{trainno1}}</td>
+                        <td>{{trainname1}}</td>
+                        <td>{{time1}}</td>
+                        <td>{{day1}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno2}}</td>
+                        <td>{{trainname2}}</td>
+                        <td>{{time2}}</td>
+                        <td>{{day2}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno3}}</td>
+                        <td>{{trainname3}}</td>
+                        <td>{{time3}}</td>
+                        <td>{{day3}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno4}}</td>
+                        <td>{{trainname4}}</td>
+                        <td>{{time4}}</td>
+                        <td>{{day4}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno5}}</td>
+                        <td>{{trainname5}}</td>
+                        <td>{{time5}}</td>
+                        <td>{{day5}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno6}}</td>
+                        <td>{{trainname6}}</td>
+                        <td>{{time6}}</td>
+                        <td>{{day6}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno7}}</td>
+                        <td>{{trainname7}}</td>
+                        <td>{{time7}}</td>
+                        <td>{{day7}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno8}}</td>
+                        <td>{{trainname8}}</td>
+                        <td>{{time8}}</td>
+                        <td>{{day8}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno9}}</td>
+                        <td>{{trainname9}}</td>
+                        <td>{{time9}}</td>
+                        <td>{{day9}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno10}}</td>
+                        <td>{{trainname10}}</td>
+                        <td>{{time10}}</td>
+                        <td>{{day10}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno11}}</td>
+                        <td>{{trainname11}}</td>
+                        <td>{{time11}}</td>
+                        <td>{{day11}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno12}}</td>
+                        <td>{{trainname12}}</td>
+                        <td>{{time12}}</td>
+                        <td>{{day12}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno13}}</td>
+                        <td>{{trainname13}}</td>
+                        <td>{{time13}}</td>
+                        <td>{{day13}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno14}}</td>
+                        <td>{{trainname14}}</td>
+                        <td>{{time14}}</td>
+                        <td>{{day14}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno15}}</td>
+                        <td>{{trainname15}}</td>
+                        <td>{{time15}}</td>
+                        <td>{{day15}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno16}}</td>
+                        <td>{{trainname16}}</td>
+                        <td>{{time16}}</td>
+                        <td>{{day16}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno17}}</td>
+                        <td>{{trainname17}}</td>
+                        <td>{{time17}}</td>
+                        <td>{{day17}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno18}}</td>
+                        <td>{{trainname18}}</td>
+                        <td>{{time18}}</td>
+                        <td>{{day18}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno19}}</td>
+                        <td>{{trainname19}}</td>
+                        <td>{{time19}}</td>
+                        <td>{{day19}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno20}}</td>
+                        <td>{{trainname20}}</td>
+                        <td>{{time20}}</td>
+                        <td>{{day20}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno21}}</td>
+                        <td>{{trainname21}}</td>
+                        <td>{{time21}}</td>
+                        <td>{{day21}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno22}}</td>
+                        <td>{{trainname22}}</td>
+                        <td>{{time22}}</td>
+                        <td>{{day22}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno23}}</td>
+                        <td>{{trainname23}}</td>
+                        <td>{{time23}}</td>
+                        <td>{{day23}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno24}}</td>
+                        <td>{{trainname24}}</td>
+                        <td>{{time24}}</td>
+                        <td>{{day24}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno25}}</td>
+                        <td>{{trainname25}}</td>
+                        <td>{{time25}}</td>
+                        <td>{{day25}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno26}}</td>
+                        <td>{{trainname26}}</td>
+                        <td>{{time26}}</td>
+                        <td>{{day26}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno27}}</td>
+                        <td>{{trainname27}}</td>
+                        <td>{{time27}}</td>
+                        <td>{{day27}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno28}}</td>
+                        <td>{{trainname28}}</td>
+                        <td>{{time28}}</td>
+                        <td>{{day28}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno29}}</td>
+                        <td>{{trainname29}}</td>
+                        <td>{{time29}}</td>
+                        <td>{{day29}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno30}}</td>
+                        <td>{{trainname30}}</td>
+                        <td>{{time30}}</td>
+                        <td>{{day30}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno31}}</td>
+                        <td>{{trainname31}}</td>
+                        <td>{{time31}}</td>
+                        <td>{{day31}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno32}}</td>
+                        <td>{{trainname32}}</td>
+                        <td>{{time32}}</td>
+                        <td>{{day32}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno33}}</td>
+                        <td>{{trainname33}}</td>
+                        <td>{{time33}}</td>
+                        <td>{{day33}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno34}}</td>
+                        <td>{{trainname34}}</td>
+                        <td>{{time34}}</td>
+                        <td>{{day34}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno35}}</td>
+                        <td>{{trainname35}}</td>
+                        <td>{{time35}}</td>
+                        <td>{{day35}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno36}}</td>
+                        <td>{{trainname36}}</td>
+                        <td>{{time36}}</td>
+                        <td>{{day36}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno37}}</td>
+                        <td>{{trainname37}}</td>
+                        <td>{{time37}}</td>
+                        <td>{{day37}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno38}}</td>
+                        <td>{{trainname38}}</td>
+                        <td>{{time38}}</td>
+                        <td>{{day38}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno39}}</td>
+                        <td>{{trainname39}}</td>
+                        <td>{{time39}}</td>
+                        <td>{{day39}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno40}}</td>
+                        <td>{{trainname40}}</td>
+                        <td>{{time40}}</td>
+                        <td>{{day40}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno41}}</td>
+                        <td>{{trainname41}}</td>
+                        <td>{{time41}}</td>
+                        <td>{{day41}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno42}}</td>
+                        <td>{{trainname42}}</td>
+                        <td>{{time42}}</td>
+                        <td>{{day42}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno43}}</td>
+                        <td>{{trainname43}}</td>
+                        <td>{{time43}}</td>
+                        <td>{{day43}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno44}}</td>
+                        <td>{{trainname44}}</td>
+                        <td>{{time44}}</td>
+                        <td>{{day44}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno45}}</td>
+                        <td>{{trainname45}}</td>
+                        <td>{{time45}}</td>
+                        <td>{{day45}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno46}}</td>
+                        <td>{{trainname46}}</td>
+                        <td>{{time46}}</td>
+                        <td>{{day46}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno47}}</td>
+                        <td>{{trainname47}}</td>
+                        <td>{{time47}}</td>
+                        <td>{{day47}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno48}}</td>
+                        <td>{{trainname48}}</td>
+                        <td>{{time48}}</td>
+                        <td>{{day48}}</td>
+                    </tr>
+                    <tr>
+                        <td>{{trainno49}}</td>
+                        <td>{{trainname49}}</td>
+                        <td>{{time49}}</td>
+                        <td>{{day49}}</td>
+                    </tr>
+                </tbody>
+            </table>
+</body>
+<style>
+
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+  
+    ::-webkit-input-placeholder {
+      color: #56585b;
+    }
+  
+    ::-moz-placeholder {
+      color: #56585b;
+    }
+  
+    :-moz-placeholder {
+      color: #56585b;
+    }
+  
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      background: url('https://source.unsplash.com/G8rRItjrwkA') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      color: #0a0a0b;
+      overflow: hidden;
+    }
+  
+    ul,
+    nav {
+      list-style: none;
+      padding: 0;
+    }
+  
+    a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  
+    a:hover {
+      opacity: 1;
+    }
+  
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+  
+    i {
+      font-size: 1.3rem;
+    }
+  
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 10px 100px 0;
+    }
+  
+    header nav ul {
+      display: flex;
+    }
+  
+    header nav li {
+      margin: 0 15px;
+    }
+  
+    header nav li:first-child {
+      margin-left: 0;
+    }
+  
+    header nav li:last-child {
+      margin-right: 0;
+    }
+</style>
+</html>

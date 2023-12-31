@@ -1,0 +1,394 @@
+<html>
+<title>MAG</title>
+
+<link rel="icon" href="https://cdn0.iconfinder.com/data/icons/travel-filled-line-4/64/Travel-Filled-14-512.png"
+  type="image/x-icon">
+<div id="madeby">
+  <head>
+
+
+  </head>
+</div>
+</div>
+<div class="container">
+  <header>
+    <h2><a class="b" href="http://127.0.0.1:5000/"><i class="ion-plane"></i> MAG.in</a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="/listtrains" title="TimeTable">Train Time Table</a>
+        </li>
+        <li>
+          <a href="/inserttrain" title="InsertTrains">Add New Trains</a>
+        </li>
+        <li>
+          <a href="/aboutus" title="AboutUs">About Us</a>
+        </li>
+        <li>
+          <a class="hey" href="/bored" title="Don't Click">Are You Bored?</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <body><br><br><br><br><br><br>
+    <div class="panel">
+      <center><h1>ABOUT US</h1></center>
+    <h2><center>This project which consists of <strong>8683</strong> lines of code, gave us the perfect oppurtunity to learn and use our knowledge in python and mySQL in a very extensive manner. While building this project we got introduced to some other pretty useful frameworks such as flasks which helped us put together our website and other functionalities in our project. The duration to build this website taught us a lot along the way.</center></h2>
+    </form><br>
+  </body>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+    *,
+    *:before,
+    *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
+    }
+
+    ::-webkit-input-placeholder {
+      color: #56585b;
+    }
+
+    ::-moz-placeholder {
+      color: #56585b;
+    }
+
+    :-moz-placeholder {
+      color: #56585b;
+    }
+    .panel {
+      width: 600px;
+      max-width: 90%;
+      display:block;
+      margin: auto;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px 2px, rgba(255, 255, 255, 0.06) 0px 2px 4px -1px;
+      background-image: initial;
+      background-color: rgb(255, 255, 255)
+      ;
+    }
+    form-control2 {
+      height: 30px;
+      border-color: rgb(70, 76, 79);
+      background:#3B3B3B;
+      border-radius: 6px;
+      padding: 0 5px;
+      border: 1px solid #a0aec0;
+      margin: 3px;
+      color:#B0A99F;
+      border-color: rgb(70, 76, 79);
+      border-top-color: rgb(70, 76, 79);
+      border-right-color: rgb(70, 76, 79);
+      border-bottom-color: rgb(70, 76, 79);
+      border-left-color: rgb(70, 76, 79);
+  
+    }
+    .btn {
+      background-color: #2A265F;
+      border: 0;
+      border-radius: 50px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+      color: #fff;
+      font-size: 16px;
+      padding: 12px 25px;
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      letter-spacing: 0.8px;
+    }
+  
+
+  .form-group .form-group-label {
+    color: #B0A99F;
+    font-weight: bold;
+    margin-top: 3px;
+    display: inline-block;
+
+  }
+    .floating-text {
+      background-color: #001F61;
+      border-radius: 10px 10px 0 0;
+      color: #fff;
+      font-family: 'Muli';
+      padding: 7px 15px;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 998;
+    }
+
+    .floating-text a {
+      color: #FF7500;
+      text-decoration: none;
+    }
+
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      background-image: linear-gradient(45deg, #7175da, #ee8787);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      color: #0a0a0b;
+      overflow: visible;
+    }
+
+    ul,
+    nav {
+      list-style: none;
+      padding: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    a:hover {
+      opacity: 1;
+      font-weight: bold;
+      
+    }
+    a.b:hover{
+      color: #ef3f5a;
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: rgb(0, 0, 0);
+      margin: 0 0 1.5rem;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 10px 100px 0;
+    }
+
+    header nav ul {
+      display: flex;
+    }
+
+    header nav li {
+      margin: 0 15px;
+    }
+
+    header nav li:first-child {
+      margin-left: 0;
+    }
+
+    header nav li:last-child {
+      margin-right: 0;
+    }
+
+    a.btn {
+      color: #fff;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    a.btn:hover {
+      background: #d73851;
+      border: 1px solid #d73851;
+      color: #fff;
+    }
+
+    .cover {
+      height: 100vh;
+      width: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      padding: 20px 50px;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .flex-form input[type="submit"] {
+      background: #ef3f5a;
+      border: 1px solid #ef3f5a;
+      color: rgb(36, 15, 15);
+      padding: 0 30px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    .hey {
+      background: #ef3f5a;
+      border: 1px solid #ef3f5a;
+      color: #fff;
+      padding: 16 30px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    .flex-form {
+      display: -webkit-box;
+      display: flex;
+      z-index: 10;
+      position: relative;
+      width: 500px;
+      box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .flex-form>* {
+      border: 0;
+      padding: 0 0 0 10px;
+      background: #fff;
+      line-height: 50px;
+      font-size: 1rem;
+      border-radius: 0;
+      outline: 0;
+      -webkit-appearance: none;
+    }
+
+    input[type="search"] {
+      flex-basis: 500px;
+    }
+
+    .flex-formd input[type="DATE"] {
+      border-radius: 50px 20px;
+      border: 2px solid #ef3f5a;
+      padding: 0 0 0 10px;
+      background: #fff;
+      height: 50px;
+      font-size: 1rem;
+      border-radius: 0;
+      outline: 0;
+      -webkit-appearance: none;
+    }
+
+
+    #madeby {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 25px 100px;
+      color: #fff;
+    }
+
+    @media all and (max-width:800px) {
+      body {
+        font-size: 0.9rem;
+      }
+
+      .flex-form {
+        width: 100%;
+      }
+
+      input[type="search"] {
+        flex-basis: 100%;
+      }
+
+      .flex-form>* {
+        font-size: 0.9rem;
+      }
+
+      header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        padding: 10px !important;
+      }
+
+      header h2 {
+        margin-bottom: 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .cover {
+        padding: 20px;
+      }
+
+      #madeby {
+        padding: 30px 20px;
+      }
+    }
+
+    @media all and (max-width:360px) {
+      header nav li {
+        margin: 0 10px;
+      }
+
+      .flex-form {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+      }
+
+      input[type="search"] {
+        flex-basis: 0;
+      }
+
+      label {
+        display: none;
+      }
+    }
+
+    .floating-text {
+      background-color: #001F61;
+      border-radius: 10px 10px 0 0;
+      color: #fff;
+      font-family: 'Muli';
+      padding: 7px 15px;
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 998;
+    }
+
+    .floating-text a {
+      color: #FF7500;
+      text-decoration: none;
+    }
+    
+  </style>
+
+</html>

@@ -1,0 +1,473 @@
+<html>
+<title>MAG</title>
+
+<link rel="icon" href="https://cdn0.iconfinder.com/data/icons/travel-filled-line-4/64/Travel-Filled-14-512.png"
+  type="image/x-icon">
+<div class="container">
+  <header>
+    <h2><a class="b" href="/home"> MAG.in</a></h2>
+    <nav>
+      <ul>
+        <li>
+          <a href="/listtrains" title="TimeTable">Train Time Table</a>
+        </li>
+        <li>
+          <a href="/inserttrain" title="InsertTrains">Add New Trains</a>
+        </li>
+        <li>
+          <a href="/aboutus" title="AboutUs">About Us</a>
+        </li>
+        <li>
+          <a class="hey" href="/bored" title="Don't Click">Are You Bored?</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+</div>
+
+  <body>
+    <div class="cover">
+      <h1>Discover the Trains out there.</h1>
+      <form onkeypress="return event.keyCode != 13" id="myForm"  class="flex-form" >
+        <br><input id="1" style="text-transform: capitalize;" spellcheck="false" type="search" placeholder="FROM"><br>
+      </form>
+      <form onkeypress="return event.keyCode != 13" id="myForm2" class="flex-form">
+        <br><input id="2" style="text-transform: capitalize;" spellcheck="false" type="search" placeholder="TO">
+      </form><br>
+      <form onkeypress="return event.keyCode != 13" id="myForm3" class="flex-formd">
+        <input type="date" id="date-picker">
+      </form><br>
+      <a href="/" type="submit" id="myBtn" class="btn"
+        onclick="myFunction(); location.href=this.href+'from='+x+'to='+y+'date='+z;return false;"
+        value="SEARCH">SEARCH</a>
+    </div>
+  
+    <script>
+      var input = document.getElementById("2");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+         event.preventDefault();
+         document.getElementById("myBtn").click();
+        }
+      });
+      </script>
+      <script>
+        var input = document.getElementById("1");
+        input.addEventListener("keyup", function(event) {
+          if (event.keyCode === 13) {
+           event.preventDefault();
+           document.getElementById("2").focus();
+          }
+        });
+        </script>
+    <script>
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = String(date.getMonth() + 1).padStart(2, '0');
+      var todayDate = String(date.getDate()).padStart(2, '0');
+      var datePattern = year + '-' + month + '-' + todayDate;
+      document.getElementById("date-picker").value = datePattern;
+      if (Number(month)>8){
+        year=String(Number(year)+1)
+        month=String(Number(month)-8).padStart(2, '0')
+      }
+      else{
+        month=String(Number(month)+4).padStart(2, '0')
+      }
+
+      var datePattern2= year + '-' + month + '-' + todayDate;
+      
+      document.getElementById("date-picker").setAttribute("min", datePattern);
+      document.getElementById("date-picker").setAttribute("max", datePattern2);
+    </script>
+
+    <script>
+
+      function myFunction() {
+        x = document.getElementById("myForm").elements[0].value;
+        y = document.getElementById("myForm2").elements[0].value;
+        z = document.getElementById("myForm3").elements[0].value;
+
+      }
+    </script>
+
+
+</div>
+</body>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+  *,
+  *:before,
+  *:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+  }
+
+  ::-webkit-input-placeholder {
+    color: #56585b;
+  }
+
+  ::-moz-placeholder {
+    color: #56585b;
+  }
+
+  :-moz-placeholder {
+    color: #56585b;
+  }
+
+  .floating-text {
+    background-color: #001F61;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+    font-family: 'Muli';
+    padding: 7px 15px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 998;
+  }
+
+  .floating-text a {
+    color: #FF7500;
+    text-decoration: none;
+  }
+
+  html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    background: url(https://images.unsplash.com/photo-1502322386937-39e80cbbb461?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxfDB8MXxhbGx8fHx8fHx8fA&ixlib=rb-1.2.1&q=80&w=1080&utm_source=unsplash_source&utm_medium=referral&utm_campaign=api-credit) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    color: #0a0a0b;
+    overflow: hidden;
+  }
+
+  ul,
+  nav {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  a:hover {
+    opacity: 1;
+    font-weight: bold;
+    
+  }
+  a.b:hover{
+    color: #ef3f5a;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.5rem;
+  }
+
+  i {
+    font-size: 1.3rem;
+  }
+  i:hover{
+    font-weight: bold;
+  }
+
+  header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 10px 100px 0;
+  }
+
+  header nav ul {
+    display: flex;
+  }
+
+  header nav li {
+    margin: 0 15px;
+  }
+
+  header nav li:first-child {
+    margin-left: 0;
+  }
+
+  header nav li:last-child {
+    margin-right: 0;
+  }
+
+  a.btn {
+    color: #fff;
+    padding: 13px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  a.btn:hover {
+    background: rgb(197, 17, 44);
+    border: 1px solid #d73851;
+    color: #fff;
+  }
+  .cover {
+    height: 100vh;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 20px 50px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+
+  .flex-form input[type="submit"] {
+    background: #ef3f5a;
+    border: 1px solid #ef3f5a;
+    color: rgb(36, 15, 15);
+    padding: 0 30px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+  }
+
+  .hey {
+    background: #ef3f5a;
+    border: 1px solid #ef3f5a;
+    color: #fff;
+    padding: 16 30px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+  .flex-form {
+    border-radius: 25px;
+    padding:0px;
+    max-height: 55px;
+    display: -webkit-box;
+    display: flex;
+    z-index: 10;
+    background-color: rgb(0, 0, 0);
+    border: 1.2px solid rgb(152, 13, 34);
+    position: relative;
+    width: 400px;
+    opacity: 0.7;
+  }
+
+  .flex-form>* {
+  
+    border: 0;
+    padding: 0 0 0 15px;
+    
+    background-color: rgb(0, 0, 0);
+    line-height: 42px;
+    font-size: 1rem;
+    border-radius: 25px;
+    outline:#ef3f5a;
+    -webkit-appearance: none;
+  }
+
+  input[type="search"] {
+    flex-basis: 400px;
+    padding-right: 15px;
+    color:#fff
+  }
+
+  .flex-formd input[type="DATE"] {
+    border: 1px solid rgb(152, 13, 34);
+    padding: 0 0 0 10px;
+    height: 44px;
+    font-size: 1rem;
+    border-radius: 24px;
+    outline: 0;
+    opacity:0.75;
+    color:#fff;
+    background-color: rgb(0, 0, 0);
+    
+    
+  }
+  .flex-formd input[type="DATE"]{
+    opacity: 1;
+  }
+  ::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path fill="%23bbbbbb" d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+
+  }
+  #madeby {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 25px 100px;
+    color: #fff;
+  }
+
+  @media all and (max-width:800px) {
+    body {
+      font-size: 0.9rem;
+    }
+
+    .flex-form {
+      width: 100%;
+    }
+
+
+    .flex-form>* {
+      font-size: 0.9rem;
+    }
+
+    header {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      padding: 10px !important;
+    }
+
+    header h2 {
+      margin-bottom: 15px;
+    }
+
+    header h2:hover{
+      font-size:larger
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .cover {
+      padding: 20px;
+    }
+
+    #madeby {
+      padding: 30px 20px;
+    }
+  }
+
+  @media all and (max-width:360px) {
+    header nav li {
+      margin: 0 10px;
+    }
+
+    .flex-form {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+    }
+
+
+    label {
+      display: none;
+    }
+
+    ul,
+    nav {
+      list-style: none;
+      padding: 0;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+   
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 10px 100px 0;
+    }
+
+    header nav ul {
+      display: flex;
+    }
+
+    header nav li {
+      margin: 0 15px;
+    }
+
+    header nav li:first-child {
+      margin-left: 0;
+    }
+
+    header nav li:last-child {
+      margin-right: 0;
+    }
+
+    .cover {
+      height: 100vh;
+      width: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+      background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+      padding: 20px 50px;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+
+  }
+</style>
+
+</html>

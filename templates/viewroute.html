@@ -1,0 +1,797 @@
+<html>
+  <title>Train Route</title>
+  <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/travel-filled-line-4/64/Travel-Filled-14-512.png"
+  type="image/x-icon">
+<style>
+  :root {
+    --primary-color: #2A265F;
+    --primary-dark: #00afafe6;
+    --primary-light: #00afaf26;
+    --primary-light-hover: #00afaf40;
+  }
+  .actie1{
+    color:#dc2626;
+    font-weight: bold;
+  }
+  body {
+    background: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    padding: 1rem;
+    height:auto;
+    overflow-y:visible;
+  }
+  
+  .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+  }
+  .list-inline > li {
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  
+  .position-relative {
+    position: relative;
+  }
+  
+  .journey {
+    counter-reset: stop-counter;
+  }
+  .journey-items {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: sub-stop-counter;
+  }
+  .l {
+    display:none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    
+    counter-reset: sub-stop-counter;
+  }
+  
+  .journey-timeline {
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  .journey-timeline-bar {
+    position: absolute;
+    left: calc(100px + 0.5rem);
+    margin-left: -1px;
+    height: 100%;
+    width: 2px;
+    background-color: var(--primary-light);
+  }
+  .journey-timeline-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem 0.5rem;
+    color: initial;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+  }
+   .journey-timeline-wrapper.active1 {
+    background-color: var(--primary-light-hover);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .journey-timeline-wrapper:hover {
+    background-color:lightgray;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .journey-timeline-wrapper:hover:before, .journey-timeline-wrapper.active1:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(100px + 0.5rem);
+    bottom: 0;
+    margin-left: -1px;
+    height: 100%;
+    width: 2px;
+  }
+  .journey-timeline-wrapper-datetime {
+    min-width: 0;
+    flex: 0 0 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .journey-timeline-wrapper-datetime .journey-date,
+  .journey-timeline-wrapper-datetime .date-time {
+    text-align: right;
+  }
+  .journey-timeline-wrapper-datetime .date-time {
+    margin-top: 0.125rem;
+    font-size: 0.92rem;
+    line-height: 1.25rem;
+    color: #374151;
+  }
+  .journey-timeline-wrapper-checkpoint {
+    min-width: 0;
+    flex: 0 0 40px;
+    position: relative;
+  }
+  .journey-timeline-wrapper-checkpoint .number-area {
+    display: block;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .journey-timeline-wrapper-checkpoint .number-area:after {
+    content: counter(sub-stop-counter);
+    counter-increment: sub-stop-counter;
+  }
+  .journey-timeline-wrapper-info {
+    min-width: 0;
+    flex: 1 1 0%;
+  }
+
+  .journey-timeline-wrapper-info .journey-location {
+    font-weight: 500;
+  }
+  .journey-timeline-wrapper-info .actie1 {
+  font-weight: 700;
+  }
+
+  .journey-timeline-wrapper-info label {
+    display: block;
+    margin-top: 0.125rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #374151;
+  }
+  .journey-timeline-wrapper-info ul {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #374151;
+  }
+  .journey-timeline-wrapper.has-incident .number-area {
+    border-color: #dc2626;
+    background-color: #dc2626;
+    color: white;
+  }
+  .journey-timeline-wrapper.active1 .number-area {
+    border-color: #dc2626;
+    background-color: #dc2626;
+    color: white;
+    font-weight: 800;
+  }
+  .journey-item:first-child .journey-timeline-bar {
+    top: 1rem;
+  }
+  .journey-item:first-child .journey-timeline-wrapper:hover:before, .journey-item:first-child .journey-timeline-wrapper.active:before {
+    top: 1rem;
+  }
+  .journey-item:first-child .journey-timeline .number-area {
+    border-color: #15803d;
+    background: #15803d;
+    color: white;
+  }
+  .journey-item:first-child .journey-timeline .number-area:after {
+    content: "";
+  }
+  .journey-item:last-child .journey-timeline-bar {
+    height: 1rem;
+  }
+  .journey-item:last-child .journey-timeline-wrapper:hover:before, .journey-item:last-child .journey-timeline-wrapper.active:before {
+    height: 1rem;
+  }
+  .journey-item:last-child .journey-timeline .number-area {
+    border-color: #dc2626;
+    background: #dc2626;
+    color: white;
+  }
+  .journey-item:last-child .journey-timeline .number-area:after {
+    content: "";
+  }
+  .active1{
+    color:#dc2626;
+  }
+
+</style>
+<h1>{{trainno+space+trainnamez}}</h1>
+<ul class="journey-items">
+  <li class="journey-item {{s1}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k1}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t1}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k1}}">{{s1}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>0 Km</strong></li>
+            <li><strong></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s2}}>
+  <li class="journey-item {{s2}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k2}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t2}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k2}}">{{s2}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d2}} Km</strong></li>
+            <li>Duration: <strong><a id="time2"></a></strong></li>
+            <script>
+              time1 = '{{t1}}'.split(":");
+              time2 = '{{t2}}'.split(":");
+              h1=time1[0];
+              h2=time2[0];
+              m1=time1[1];
+              m2=time2[1];
+              if (h1>h2){hour=24+Number(h2-h1);}
+              else{
+              hour =h2-h1;}
+              if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+              else{
+              min =m2-m1;}
+              hour=hour+' hour ';
+              time= hour+min+" min"
+              document.getElementById("time2").innerHTML = time;
+            </script>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+ 
+</u{{s3}}>
+  <li class="journey-item {{s3}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k3}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t3}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k3}}">{{s3}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d3}} Km</strong></li>
+            <li>Duration: <strong><a id="time3"></a></strong></li>
+            <script>
+              time1 = '{{t2}}'.split(":");
+              time2 = '{{t3}}'.split(":");
+              h1=time1[0];
+              h2=time2[0];
+              m1=time1[1];
+              m2=time2[1];
+              if (h1>h2){hour=24+Number(h2-h1);}
+              else{
+              hour =h2-h1;}
+              if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+              else{
+              min =m2-m1;}
+              hour=hour+' hour '
+              time= hour+min+" min"
+              document.getElementById("time3").innerHTML = time;
+            </script>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s4}}>
+  <li class="journey-item {{s4}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k4}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t4}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k4}}">{{s4}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d4}} Km</strong></li>
+            <li>Duration: <strong><a id="time4"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s5}}>
+  <li class="journey-item {{s5}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k5}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t5}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k5}}">{{s5}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d5}} Km</strong></li>
+            <li>Duration: <strong><a id="time5"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s6}}>
+  <li class="journey-item {{s6}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k6}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t6}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k6}}">{{s6}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d6}} Km</strong></li>
+            <li>Duration: <strong><a id="time6"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s7}}>
+  <li class="journey-item {{s7}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k7}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t7}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k7}}">{{s7}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d7}} Km</strong></li>
+            <li>Duration: <strong><a id="time7"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s8}}>
+  <li class="journey-item {{s8}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k8}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t8}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k8}}">{{s8}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d8}} Km</strong></li>
+            <li>Duration: <strong><a id="time8"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s9}}>
+  <li class="journey-item {{s9}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k9}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t9}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k9}}">{{s9}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d9}} Km</strong></li>
+            <li>Duration: <strong><a id="time9"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s10}}>
+  <li class="journey-item {{s10}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k10}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t10}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k10}}">{{s10}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d10}} Km</strong></li>
+            <li>Duration: <strong><a id="time10"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s11}}>
+  <li class="journey-item {{s11}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k11}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t11}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k11}}">{{s11}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d11}} Km</strong></li>
+            <li>Duration: <strong><a id="time11"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s12}}>
+
+   <li class="journey-item {{s12}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k12}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t12}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k12}}">{{s12}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d12}} Km</strong></li>
+            <li>Duration: <strong><a id="time12"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </li>
+</u{{s13}}>
+  <li class="journey-item {{s13}}">
+    <div class="journey-timeline active">
+      <span class="journey-timeline-bar" aria-hidden="true"></span>
+      <div class="journey-timeline-wrapper active{{k13}}">
+          <div class="journey-timeline-wrapper-datetime">
+            <div class="journey-date"></div>
+            <div class="date-time">{{t13}}</div>
+          </div>
+        <div class="journey-timeline-wrapper-checkpoint">
+          <div class="number-area"></div>
+        </div>
+        <div class="journey-timeline-wrapper-info">
+          <div class="journey-location actie{{k13}}">{{s13}}</div>
+          <label for=""></label>
+          <ul class="list-unstyled list-inline">
+            <li><strong>{{d13}} Km</strong></li>
+            <li>Duration: <strong><a id="time13"></a></strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </li>
+</u{{s14}}>
+<li class="journey-item {{s14}}">
+  <div class="journey-timeline active">
+    <span class="journey-timeline-bar" aria-hidden="true"></span>
+    <div class="journey-timeline-wrapper active{{k14}}">
+        <div class="journey-timeline-wrapper-datetime">
+          <div class="journey-date"></div>
+          <div class="date-time">{{t14}}</div>
+        </div>
+      <div class="journey-timeline-wrapper-checkpoint">
+        <div class="number-area"></div>
+      </div>
+      <div class="journey-timeline-wrapper-info">
+        <div class="journey-location actie{{k14}}">{{s14}}</div>
+        <label for=""></label>
+        <ul class="list-unstyled list-inline">
+          <li><strong>{{d14}} Km</strong></li>
+          <li>Duration: <strong><a id="time14"></a></strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+</u{{s15}}>
+<li class="journey-item {{s15}}">
+  <div class="journey-timeline active">
+    <span class="journey-timeline-bar" aria-hidden="true"></span>
+    <div class="journey-timeline-wrapper active{{k15}}">
+        <div class="journey-timeline-wrapper-datetime">
+          <div class="journey-date"></div>
+          <div class="date-time">{{t15}}</div>
+        </div>
+      <div class="journey-timeline-wrapper-checkpoint">
+        <div class="number-area"></div>
+      </div>
+      <div class="journey-timeline-wrapper-info">
+        <div class="journey-location actie{{k15}}">{{s15}}</div>
+        <label for=""></label>
+        <ul class="list-unstyled list-inline">
+          <li><strong>{{d15}} Km</strong></li>
+          <li>Duration: <strong><a id="time15"></a></strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</li>
+</u{{s16}}>
+<script>
+  time1 = '{{t3}}'.split(":");
+  time2 = '{{t4}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time4").innerHTML = time;
+
+  time1 = '{{t4}}'.split(":");
+  time2 = '{{t5}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time5").innerHTML = time;
+
+  time1 = '{{t5}}'.split(":");
+  time2 = '{{t6}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time6").innerHTML = time;
+
+    time1 = '{{t6}}'.split(":");
+  time2 = '{{t7}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time7").innerHTML = time;
+  
+  time1 = '{{t7}}'.split(":");
+  time2 = '{{t8}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time8").innerHTML = time;
+
+    time1 = '{{t8}}'.split(":");
+  time2 = '{{t9}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time9").innerHTML = time;
+
+  time1 = '{{t9}}'.split(":");
+  time2 = '{{t10}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time10").innerHTML = time;
+  
+  time1 = '{{t10}}'.split(":");
+  time2 = '{{t11}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time11").innerHTML = time;
+  
+  time1 = '{{t11}}'.split(":");
+  time2 = '{{t12}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time12").innerHTML = time;
+
+  time1 = '{{t12}}'.split(":");
+  time2 = '{{t13}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time13").innerHTML = time;
+
+  time1 = '{{t13}}'.split(":");
+  time2 = '{{t14}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time14").innerHTML = time;
+  
+  time1 = '{{t14}}'.split(":");
+  time2 = '{{t15}}'.split(":");
+  h1=time1[0];
+  h2=time2[0];
+  m1=time1[1];
+  m2=time2[1];
+  if (h1>h2){hour=24+Number(h2-h1);}
+  else{
+  hour =h2-h1;}
+  if (m1>m2){min=60+Number(m2-m1); hour-=1;}
+  else{
+  min =m2-m1;}
+  hour=hour+' hour '
+  time= hour+min+" min"
+  document.getElementById("time15").innerHTML = time;
+  
+  </script>
+</html>

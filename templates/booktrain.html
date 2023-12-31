@@ -1,0 +1,1164 @@
+<html>
+
+<head>
+  <title>Ticket Booking</title>
+  <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/travel-filled-line-4/64/Travel-Filled-14-512.png"
+    type="image/x-icon">
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+    
+      html {
+        box-sizing: border-box;
+      }
+    
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+    
+      .select {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        font: normal 11px/22px Arial, Sans-Serif;
+        color: black;
+        border: 1px solid #ccc;
+      }
+    
+      .styledSelect {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: white;
+        padding: 0 10px;
+        font-weight: bold;
+      }
+    
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    
+      .styledSelect:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-color: black transparent transparent transparent;
+        position: absolute;
+        top: 9px;
+        right: 6px;
+      }
+    
+      .styledSelect:active,
+      .styledSelect.active {
+        background-color: #eee;
+      }
+    
+      .options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 999;
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+        border: 1px solid #ccc;
+        background-color: white;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+    
+      .options li {
+        padding: 0 6px;
+        margin: 0 0;
+        padding: 0 10px;
+      }
+    
+      .options li:hover {
+        background-color: #39f;
+        color: white;
+      }
+    
+      .floating-text {
+        background-color: #001F61;
+        border-radius: 10px 10px 0 0;
+        color: #fff;
+        font-family: 'Muli';
+        padding: 7px 15px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 998;
+      }
+    
+      form-check {
+        display: block;
+        min-height: 1.5rem;
+        padding-left: 1.5em;
+        margin-bottom: .125rem
+      }
+    
+      .form-check .form-check-input {
+        float: left;
+        margin-left: -1.5em
+      }
+    
+      .form-check-input {
+        width: 1em;
+        height: 1em;
+        margin-top: .25em;
+        vertical-align: top;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        border: 1px solid rgba(0, 0, 0, .25);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact
+      }
+    
+      .form-check-input[type=checkbox] {
+        border-radius: .25em
+      }
+    
+      .form-check-input[type=radio] {
+        border-radius: 50%
+      }
+    
+      .form-check-input:active {
+        filter: brightness(90%)
+      }
+    
+      .form-check-input:focus {
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .25)
+      }
+    
+      .form-check-input:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd
+      }
+    
+      .form-check-input:checked[type=checkbox] {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e")
+      }
+    
+      .form-check-input:checked[type=radio] {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")
+      }
+    
+      .form-check-input[type=checkbox]:indeterminate {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e")
+      }
+    
+      .form-check-input:disabled {
+        pointer-events: none;
+        filter: none;
+        opacity: .5
+      }
+    
+      .form-check-input:disabled~.form-check-label,
+      .form-check-input[disabled]~.form-check-label {
+        opacity: .5
+      }
+    
+      .form-switch {
+        padding-left: 2.5em
+      }
+    
+      .form-switch .form-check-input {
+        width: 2em;
+        margin-left: -2.5em;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+        background-position: left center;
+        border-radius: 2em;
+        transition: background-position .15s ease-in-out
+      }
+    
+      @media (prefers-reduced-motion:reduce) {
+        .form-switch .form-check-input {
+          transition: none
+        }
+      }
+    
+      .form-switch .form-check-input:focus {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%2386b7fe'/%3e%3c/svg%3e")
+      }
+    
+      .form-switch .form-check-input:checked {
+        background-position: right center;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e")
+      }
+    
+      .form-check-inline {
+        display: inline-block;
+        margin-right: 1rem
+      }
+    
+      .form-check-input.is-valid,
+      .was-validated .form-check-input:valid {
+        border-color: #198754
+      }
+    
+      .form-check-input.is-valid:checked,
+      .was-validated .form-check-input:valid:checked {
+        background-color: #198754
+      }
+    
+      .form-check-input.is-valid:focus,
+      .was-validated .form-check-input:valid:focus {
+        box-shadow: 0 0 0 .25rem rgba(25, 135, 84, .25)
+      }
+    
+      .form-check-input.is-valid~.form-check-label,
+      .was-validated .form-check-input:valid~.form-check-label {
+        color: #198754
+      }
+    
+      .form-check-inline .form-check-input~.valid-feedback {
+        margin-left: .5em
+      }
+    
+      .input-group .form-control.is-valid,
+      .input-group .form-select.is-valid,
+      .was-validated .input-group .form-control:valid,
+      .was-validated .input-group .form-select:valid {
+        z-index: 1
+      }
+    
+      .input-group .form-control.is-valid:focus,
+      .input-group .form-select.is-valid:focus,
+      .was-validated .input-group .form-control:valid:focus,
+      .was-validated .input-group .form-select:valid:focus {
+        z-index: 3
+      }
+    
+      .invalid-feedback {
+        display: none;
+        width: 100%;
+        margin-top: .25rem;
+        font-size: .875em;
+        color: #dc3545
+      }
+    
+      .invalid-tooltip {
+        position: absolute;
+        top: 100%;
+        z-index: 5;
+        display: none;
+        max-width: 100%;
+        padding: .25rem .5rem;
+        margin-top: .1rem;
+        font-size: .875rem;
+        color: #fff;
+        background-color: rgba(220, 53, 69, .9);
+        border-radius: .25rem
+      }
+    
+      .is-invalid~.invalid-feedback,
+      .is-invalid~.invalid-tooltip,
+      .was-validated :invalid~.invalid-feedback,
+      .was-validated :invalid~.invalid-tooltip {
+        display: block
+      }
+    
+      .form-control.is-invalid,
+      .was-validated .form-control:invalid {
+        border-color: #dc3545;
+        padding-right: calc(1.5em + .75rem);
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right calc(.375em + .1875rem) center;
+        background-size: calc(.75em + .375rem) calc(.75em + .375rem)
+      }
+    
+      .form-control.is-invalid:focus,
+      .was-validated .form-control:invalid:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25)
+      }
+    
+      .was-validated textarea.form-control:invalid,
+      textarea.form-control.is-invalid {
+        padding-right: calc(1.5em + .75rem);
+        background-position: top calc(.375em + .1875rem) right calc(.375em + .1875rem)
+      }
+    
+      .form-select.is-invalid,
+      .was-validated .form-select:invalid {
+        border-color: #dc3545
+      }
+    
+      .form-select.is-invalid:not([multiple]):not([size]),
+      .form-select.is-invalid:not([multiple])[size="1"],
+      .was-validated .form-select:invalid:not([multiple]):not([size]),
+      .was-validated .form-select:invalid:not([multiple])[size="1"] {
+        padding-right: 4.125rem;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+        background-position: right .75rem center, center right 2.25rem;
+        background-size: 16px 12px, calc(.75em + .375rem) calc(.75em + .375rem)
+      }
+    
+      .form-select.is-invalid:focus,
+      .was-validated .form-select:invalid:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25)
+      }
+    
+      .form-check-input.is-invalid,
+      .was-validated .form-check-input:invalid {
+        border-color: #dc3545
+      }
+    
+      .form-check-input.is-invalid:checked,
+      .was-validated .form-check-input:invalid:checked {
+        background-color: #dc3545
+      }
+    
+      .form-check-input.is-invalid:focus,
+      .was-validated .form-check-input:invalid:focus {
+        box-shadow: 0 0 0 .25rem rgba(220, 53, 69, .25)
+      }
+    
+      .form-check-input.is-invalid~.form-check-label,
+      .was-validated .form-check-input:invalid~.form-check-label {
+        color: #dc3545
+      }
+    
+      .form-check-inline .form-check-input~.invalid-feedback {
+        margin-left: .5em
+      }
+    
+      .floating-text a {
+        color: #FF7500;
+        text-decoration: none;
+      }
+    
+      .html,
+      body {
+        width: 100%;
+        height: 180%;
+      }
+    
+      body {
+        background: #edf2f7;
+        font-size: 16px;
+        font-family: "Source Sans Pro", sans-serif;
+        color: #4a5568;
+        line-height: 1.45;
+      }
+    
+      h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+    
+      p {
+        margin-bottom: 16px;
+      }
+    
+      hr {
+        background: #edf2f7;
+        height: 1px;
+        border: 0;
+        margin: 24px 0 16px;
+      }
+    
+      #option-bg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 40px;
+        transition: 0.3s ease all;
+        z-index: 1;
+        display: none;
+      }
+    
+      .hey {
+        background: #ef3f5a;
+        border: 1px solid #ef3f5a;
+        color: rgb(75, 53, 53);
+        padding: 16 30px;
+        cursor: pointer;
+        object-position: center;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+    
+    
+      a.btnf {
+        color: rgb(119, 83, 83);
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+    
+      a.btnf:hover {
+        background: #d73851;
+        border: 1px solid #d73851;
+        color: #fff;
+      }
+    
+      .panel {
+        width: 400px;
+        min-height: 700px;
+        height: auto;
+        max-width: 90%;
+        margin: 50px auto;
+        box-shadow: 0 4px 6px 2px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        padding: 24px;
+        border-radius: 10px;
+        background: #ffffff;
+        overflow-y: initial;
+      }
+    
+      .form-group+.form-group {
+        margin-top: 16px;
+      }
+    
+      .form-group .form-group-input-container {
+        position: relative;
+      }
+    
+      .form-group .form-control {
+        height: 40px;
+        width: 100%;
+        border-radius: 5px;
+        padding: 0 10px;
+        border: 1px solid #a0aec0;
+        font-size: 0.9rem;
+        color: #4a5568;
+        font-family: inherit;
+      }
+    
+      .form-group .form-control::-webkit-input-placeholder {
+        color: #a0aec0;
+      }
+    
+      .form-group .form-control::-moz-placeholder {
+        color: #a0aec0;
+      }
+    
+      .form-group .form-control:-ms-input-placeholder {
+        color: #a0aec0;
+      }
+    
+      .form-group .form-control:-moz-placeholder {
+        color: #a0aec0;
+      }
+    
+      .form-group .form-group-label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+      }
+    
+      .form-group .form-group-help {
+        font-size: 0.875rem;
+        margin-top: 8px;
+        display: block;
+        color: #718096;
+      }
+    
+      .form-group details summary {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        outline: none;
+        color: #718096;
+        opacity: 0.5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .form-group details summary:hover {
+        cursor: pointer;
+        opacity: 1;
+      }
+    
+      .form-group details summary svg {
+        width: 20px;
+        height: 20px;
+      }
+    
+      .form-group details summary::-webkit-details-marker {
+        display: none;
+      }
+    
+      h2 span {
+        font-size: 10pt;
+      }
+    
+      body {
+        background-image: linear-gradient(80deg, #4b4e9e, #be5656);
+        font-family: 'Muli', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+    
+    
+      .course {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        display: flex;
+        max-width: 100%;
+        margin: auto;
+        overflow: inherit;
+        width: 1150px;
+        border-radius: 10px;
+    
+      }
+    
+      .course h5 {
+        opacity: 0.6;
+        margin: 0;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    
+      .course h4 {
+        padding: auto;
+        letter-spacing: 1px;
+        margin: 10px 0;
+      }
+    
+      .btn {
+        background-color: #2A265f;
+        border: 0;
+        border-radius: 50px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 16px;
+        padding: 12px 25px;
+        position: absolute;
+        bottom: 10px;
+        right: 30px;
+        letter-spacing: 1px;
+      }
+    
+      .course-preview {
+        background-color: #2A265F;
+        color: #fff;
+        padding: 30px;
+        width: 650px;
+        border-radius: 10px;
+      }
+    
+      .course-preview a {
+        color: #fff;
+        display: inline-block;
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 30px;
+        width: 400px;
+        text-decoration: none;
+      }
+    
+      .course-info {
+        padding: 30px;
+        position: relative;
+        width: 100%;
+        width: 520px;
+      }
+    
+      .progress-container {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        text-align: right;
+        width: 250px;
+        border-radius: 10px;
+      }
+    
+    
+      .lol {
+        color: #26b5a9;
+        ;
+    
+      }
+    
+      div.g {
+        visibility: hidden;
+      }
+    
+      .progress-text {
+        font-size: 10px;
+        opacity: 0.6;
+        letter-spacing: 1px;
+      }
+    
+    
+    
+    
+      .btn1 {
+        background-color: #2A265F;
+        border: 0;
+        border-radius: 50px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        font-size: 16px;
+        padding: 12px 25px;
+        position: absolute;
+        bottom: 10px;
+        right: 150px;
+        letter-spacing: 1px;
+      }
+    
+    
+      .floating-btn {
+        border-radius: 26.5px;
+        background-color: #001f61;
+        border: 1px solid #001F61;
+        box-shadow: 0 16px 22px -17px #03153B;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 12px 20px;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+      }
+    
+      .floating-btn:hover {
+        background-color: #ffffff;
+        color: #001F61;
+      }
+    
+      .floating-btn:focus {
+        outline: none;
+      }
+    
+      .floating-text {
+        background-color: #001F61;
+        border-radius: 10px 10px 0 0;
+        color: #fff;
+        font-family: 'Muli';
+        padding: 7px 15px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 998;
+      }
+    
+      .floating-text a {
+        color: #FF7500;
+        text-decoration: none;
+      }
+    
+      ul,
+      nav {
+        list-style: none;
+        padding: 0;
+      }
+    
+      a {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        opacity: 0.9;
+      }
+    
+      header a:hover {
+        opacity: 1;
+        font-weight: bold;
+    
+      }
+    
+      a.b:hover {
+        color: #ef3f5a;
+      }
+    
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 1.5rem;
+      }
+    
+      i {
+        font-size: 1.3rem;
+      }
+    
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        padding: 10px 100px 0;
+      }
+    
+      header nav ul {
+        display: flex;
+      }
+    
+      header nav li {
+        margin: 0 15px;
+      }
+    
+      header nav li:first-child {
+        margin-left: 0;
+      }
+    
+      header nav li:last-child {
+        margin-right: 0;
+      }
+    
+    
+      .btn:hover {
+        background: #d73851;
+        border: 1px solid #d73851;
+        color: #fff;
+      }
+    
+    
+      .btn1:hover {
+        background: #d73851;
+        border: 1px solid #d73851;
+        color: #fff;
+      }
+    
+    
+      .cover {
+        height: 100vh;
+        width: 100%;
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+        padding: 20px 50px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+      }
+    
+      .flex-form input[type="submit"] {
+        background: #ef3f5a;
+        border: 1px solid #ef3f5a;
+        color: rgb(36, 15, 15);
+        padding: 0 30px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+    
+      .hey {
+        background: #ef3f5a;
+        border: 1px solid #ef3f5a;
+        color: #fff;
+        padding: 16 30px;
+        cursor: pointer;
+        -webkit-transition: all 0.2s;
+        -moz-transition: all 0.2s;
+        transition: all 0.2s;
+      }
+    
+      .flex-form {
+        display: -webkit-box;
+        display: flex;
+        z-index: 10;
+        position: relative;
+        width: 5000px;
+        box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+      }
+    
+      .flex-form>* {
+        border: 0;
+        padding: 0 0 0 10px;
+        background: #fff;
+        line-height: 50px;
+        font-size: 1rem;
+        border-radius: 0;
+        outline: 0;
+        -webkit-appearance: none;
+      }
+    
+      input[type="search"] {
+        flex-basis: 500px;
+      }
+    
+      .flex-formd input[type="DATE"] {
+        border-radius: 50px 20px;
+        border: 2px solid #ef3f5a;
+        padding: 0 0 0 10px;
+        background: #fff;
+        height: 50px;
+        font-size: 1rem;
+        border-radius: 0;
+        outline: 0;
+        -webkit-appearance: none;
+      }
+    
+      .floating-text {
+        background-color: #001F61;
+        border-radius: 10px 10px 0 0;
+        color: #fff;
+        font-family: 'Muli';
+        padding: 7px 15px;
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 998;
+      }
+    
+      .floating-text a {
+        color: #FF7500;
+        text-decoration: none;
+      }
+    
+    
+      #madeby {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 25px 100px;
+        color: #fff;
+      }
+    
+      .table {
+        display: table;
+      }
+    
+      .row {
+        display: table-row;
+      }
+    
+      .cell {
+        display: table-cell;
+        padding: 0 10px;
+      }
+    
+      @media all and (max-width:1200px) {
+        body {
+          font-size: 0.9rem;
+    
+        }
+    
+        .flex-form {
+          width: 100%;
+        }
+    
+        input[type="search"] {
+          flex-basis: 100%;
+        }
+    
+        .flex-form>* {
+          font-size: 0.9rem;
+        }
+    
+        header {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+          padding: 10px !important;
+        }
+    
+        header h2 {
+          margin-bottom: 15px;
+        }
+    
+        h1 {
+          font-size: 2rem;
+        }
+    
+        .cover {
+          padding: 20px;
+        }
+    
+        #madeby {
+          padding: 30px 20px;
+        }
+      }
+    
+      @media all and (max-width:360px) {
+        header nav li {
+          margin: 0 10px;
+        }
+    
+        .flex-form {
+          display: -webkit-box;
+          display: flex;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          flex-direction: column;
+        }
+    
+        input[type="search"] {
+          flex-basis: 0;
+        }
+    
+        label {
+          display: none;
+        }
+      }
+    </style>
+    </head>
+  <div class="container">
+    <header>
+      <h2><a class="b" href="http://127.0.0.1:5000/"><i class="ion-plane"></i> MAG.in</a></h2>
+      <nav>
+        <ul>
+          <li>
+            <a href="/listtrains" title="TimeTable">Train Time Table</a>
+          </li>
+          <li>
+            <a href="/inserttrain" title="InsertTrains">Add New Trains</a>
+          </li>
+          <li>
+            <a href="/aboutus" title="AboutUs">About Us</a>
+          </li>
+          <li>
+            <a class="hey" href="/bored" title="Don't Click">Are You Bored?</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <br><br>
+
+
+
+<body>
+  <div class={{trainno}}></div>
+  <div class="courses-container">
+    <div class="course">
+      <div class="course-preview">
+        <h5>Train</h5>
+        <h2>{{trainno+space+trainnamez}}</h2>
+        <a>DEPARTS ON: <i class="fas fa-chevron-right"></i></a>
+        <p class="lol">{{day}}</p><br><br><br>
+        <table cellspacing="0" cellpadding="0" border="0" width="96%">
+          <tr>
+            <td width="25%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 10px;color: white;">
+              <h5> Departure </h5>
+            </td>
+            <td width="25%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 10px;color: white;">
+              <h5>Duration</h5>
+            </td>
+            <td width="25%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 600; line-height: 24px; padding: 10px;color: white;">
+              <h5>Destination</h5>
+            </td>
+          </tr>
+          <tr>
+            <td width="33%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 1000; line-height: 24px; padding: 10px;color: white;">
+              <h2> {{depst}} </h2>
+            </td>
+            <td width="25%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;color: white;">
+              <h2>&#10229; <span>{{time}}</span> &#10230;</h2>
+            </td>
+            <td width="33%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 1000; line-height: 24px; padding: 10px;color: white;">
+              <h2>{{desst}}</h2>
+            </td>
+          </tr>
+          <tr>
+            <td width="25%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 2px; padding: 5px;color: white;">
+              {{deptm}}</td>
+            <td width="25%"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 5px;">
+              <h5></h5>
+            </td>
+            <td width="25%" align="center"
+              style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; line-height: 2px; padding: 5px;color: white;">
+              {{destm}}</td>
+          </tr>
+        </table>
+      </div>
+
+
+      <br><br><br>
+      <div class="panel">
+        <h3>TRAVELLER INFORMATION</h3>
+        <form id="myForm">
+          <div class="form-group">
+            <label for="Name" class="form-group-label">Name</label>
+            <div class="form-group-input-container">
+              <input type="text" id="Name" style="text-transform: capitalize;" spellcheck="false" class="form-control" placeholder="e.g. Harry Potter">
+              <details>
+                <summary><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-help-circle">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                  </svg></summary>
+                <small class="form-group-help">
+                  Name should be same as on Government ID proof.
+                </small>
+              </details><br>
+
+              <div class="form-group">
+                <label for="age" class="form-group-label">Age</label>
+                <div class="form-group-input-container">
+                  <input type="Number" onkeydown="return event.keyCode !== 69" id="age" class="form-control" min="5" max="125" placeholder="e.g. 18">
+                  <details>
+                    <summary><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="feather feather-help-circle">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg></summary>
+                    <small class="form-group-help">
+                      Child Traveller ( 0 and 4 years) are not charged and not provided seat
+                    </small>
+                  </details><br>
+
+
+
+                  <label for="Gender" id="myRadio" class="form-group-label">Gender</label>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="option" id="option1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>&nbsp;&nbsp;&nbsp;
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="option" id="option2" value="option2">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>&nbsp;&nbsp;&nbsp;
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="option" id="option3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3">Others</label>&nbsp;&nbsp;&nbsp;
+                  </div><br>
+                  <br>
+
+                  <div class="form-group">
+                    <label for="mno" class="form-group-label">Phone Number</label>
+                    <div class="form-group-input-container">
+                      <input type="Number" onkeydown="return event.keyCode !== 69" id="mno" class="form-control" placeholder="">
+                      <br><br>
+
+                      <div class="form-group">
+                        <label for="add" class="form-group-label">Permanent Address</label>
+                        <div class="form-group-input-container">
+                          <input type="text" style="text-transform: capitalize;" spellcheck="false" id="add" class="form-control" placeholder="">
+                          <br><br>
+
+                          <div class="form-group">
+                            <label for="class" class="form-group-label">Class</label>
+                            <select id="selectbox2" class="form-control">
+                              <option value="2S">Second Class (2S)</option>
+                              <option value="SL">Sleeper Class (SL)</option>
+                              <option value="CC">AC Chair Class (CC)</option>
+                              <option value="3AC">Air-Conditioned Three-Tier Class (3AC)</option>
+                              <option value="2AC">Air-Conditioned Two-Tier Class (2AC)</option>
+                            </select>
+                            <br>
+                            <br>
+
+                            <div class="form-group">
+                              <label for="exampleDataList" class="form-group-label">Berth Preference</label>
+                              <select id="selectbox3" class="form-control">
+                                <option value="0">No Choice</option>
+                                <option value="LB">Lower Berth</option>
+                                <option value="MB">Middle Berth</option>
+                                <option value="UB">Upper Berth</option>
+                              </select>
+                              <small>Berth preference choosen here is not guaranteed</small>
+                              <br><br><br><br>
+
+                              <a href="train-ticket/" type="submit" class="btn"
+                                onclick="myFunction();display(); location.href=this.href.slice(0, -1)+'?trainname='+trainname+'&trainno='+trainno+'&fullname='+x+'&age='+y+'&gender='+k+'&berth='+z2+'&depst='+depst+'&desst='+desst+'&time='+time+'&deptm='+deptm+'&destm='+destm+'&class='+z1+'&date='+date+'&mno='+z+'&add='+a+'&name2=0&age2=0&gender2=0&berth2=0&name3=0&age3=0&gender3=0&berth3=0&name4=0&age4=0&gender4=0&berth4=0&name5=0&age5=0&gender5=0&berth5=0';return false;"
+                                value="SEARCH">Book</a>
+                              <a href="train-ticket/" type="submit" class="btn1"
+                                onclick="myFunction();display(); location.href=this.href+'addadulttwo'+'?trainname='+trainname+'&trainno='+trainno+'&fullname='+x+'&age='+y+'&gender='+k+'&berth='+z2+'&depst='+depst+'&desst='+desst+'&time='+time+'&deptm='+deptm+'&destm='+destm+'&class='+z1+'&date='+date+'&mno='+z+'&add='+a;return false;"
+                                value="Add">Add Adult(5+ yrs)</a>
+
+                              <script>
+                                function myFunction() {
+                                  x = document.getElementById("myForm").elements[0].value;
+                                  y = document.getElementById("myForm").elements[1].value;
+                                  z = document.getElementById("myForm").elements[5].value;
+                                  a = document.getElementById("myForm").elements[6].value;
+                                  var form = $("#myForm");
+                                  a = a.replace(/\//g, "%");
+                                  var option = form.find("input[name=option]:checked").val();
+                                  var output = $('input[name=option]:checked', '#myForm').val();
+                                  z1 = document.getElementById("selectbox2").value;
+                                  z2 = document.getElementById("selectbox3").value;
+                                }
+                                function display() {
+                                  if (document.getElementById('option1').checked) {
+                                    k = "Male";
+                                  }
+                                  else if (document.getElementById('option2').checked) {
+                                    k = "Female";
+                                  }
+                                  else if (document.getElementById('option3').checked) {
+                                    k = "Others";
+                                  }
+                                }
+                              </script>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+<script>
+  var trainname = '{{trainnamez}}';
+  var trainno = '{{trainno}}';
+  var depst = '{{depst}}';
+  var desst = '{{desst}}';
+  var time = '{{time}}';
+  deptm = '{{deptm}}';
+  destm = '{{destm}}';
+  date = '{{date}}';
+
+</script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js">
+</script>
+</div>
+</div>
+</html>

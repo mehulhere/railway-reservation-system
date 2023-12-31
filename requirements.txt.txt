@@ -1,0 +1,8 @@
+inflect
+googlemaps
+mysql-connector-python
+fpdf
+Flask
+flask-ngrok
+flask-executor
+datetime
